@@ -1,0 +1,22 @@
+body
+{
+    background:rgba(0, 0, 0, 0.5);
+    font-family: arial;
+}
+
+h1
+{
+    color: #999;
+    background: #263257;
+    padding: 10px 10px;
+}
+
+h2
+{
+    color: #333;
+}
+
+a
+{
+    color:blue;
+}
