@@ -6,34 +6,214 @@
     </head>
 
     <body>
+      
+      <div class="row">
         <h1><img src=https://www.diabotical.com/images/logo.svg width=200 height=24/> Duel Map Spawns - Last Updated 17/09</h1>
-        <ul1>
-            <a href=#front>
-                <img src=frontierimg.PNG width="200" height="115"/>
-            </a><br>
-            <a href=#bio>
-                <img src=bioplantimg.PNG width="200" height="115"/>
-            </a>
-            <a href=https://youtu.be/xWiuyIWYpRM>Video by Y2Jake and Phaze on Bioplant</a>
+        <div class="column">
+          <p><a href=#front>
+            <img src=frontierimg.PNG width="225" height="125"/>
+        </a><br>
+        </p>
+        <p><a href=#bio>
+            <img src=bioplantimg.PNG width="225" height="125"/>
+        </a>
+        <a href=https://youtu.be/xWiuyIWYpRM>Video by Y2Jake and Phaze on Bioplant</a>
+        <br></p>
+        <p><a href=#sky>
+            <img src=skybreakimg.PNG width="225" height="125"/>
+        </a><br>
+        </p>
+        </p>
+        <p><a href=#peri>
+            <img src=perilousimg.PNG width="225" height="125"/>
+        <a href=https://youtu.be/y8fpa0F4eLA>Video by Y2Jake and Steej on Perilous</a>
+        </a><br>
+        </p>
+        <p><a href=#kasb>
+            <img src=kasbahimg.PNG width="225" height="125"/>
+        </a>
+        </p>
+        </div>
+        <div class="column">
+        </body>
+
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            </head>
+            <body>
+            
+            <div class="slideshow-container">
+            
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 5</div>
+              <iframe src="bioplant.html" title="IMG"></iframe>
+              <div class="text">Bioplant</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 5</div>
+              <iframe src="frontier.html" title="IMG"></iframe>
+              <div class="text">Frontier</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 5</div>
+              <iframe src="skybreak.html" title="IMG"></iframe>
+              <div class="text">Skybreak</div>
+            </div>
+
+            <div class="mySlides fade">
+              <div class="numbertext">4 / 5</div>
+              <iframe src="perilous.html" title="IMG"></iframe>
+              <div class="text">Perilous</div>
+            </div>
+
+            <div class="mySlides fade">
+              <div class="numbertext">5 / 5</div>
+              <iframe src="kasbah.html" title="IMG"></iframe>
+              <div class="text">Kasbah</div>
+            </div>
+            
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            
+            </div>
             <br>
-            <a href=#sky>
-                <img src=skybreakimg.PNG width="200" height="115"/>
-            </a><br>
-            <a href=#peri>
-                <img src=perilousimg.PNG width="200" height="115"/>
-            </a><br>
-            <a href=#kasb>
-                <img src=kasbahimg.PNG width="200" height="115"/>
-            </a>            
+            
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+            
+            <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+            }
+            </script>
+                        
+            </body>
+        </div>
+      </div>
+
+    <body>
+        
         </ul1>
         <h2>Information</h2>
-        <p>Made by Pumpkin and Memento Mori<br><a href=https://discord.gg/p3bxZKE>Discord - </a><a href=https://twitter.com/pumpkin60LG>Twitter</p><br>
+        <a>
+          Diabotical spawn system for the ranked duel maps.<br>   
 
-        <div id=front><iframe src="frontier.html"></iframe></div><br>
-        <div id=bio></div><iframe src="bioplant.html"></iframe><br></div>
-        <div id=sky></div><iframe src="skybreak.html"></iframe><br></div>
-        <div id=peri></div><iframe src="perilous.html"></iframe><br></div>
-        <div id=kasb></div><iframe src="kasbah.html"></iframe></div>
+          They are made using HTML5 and java script.<br> 
+
+          Modification of Mementos Quake Live visualization System. (http://www.esreality.com/?a=post&id=2219012)<br>
+
+          The map images are made by taking screenshots of the 'Mini Map' And then changing the background in Photoshop<br>
+
+          This project is still in progress and I will be adding any new competitve maps changes to the spawns<br> 
+
+          - Pumpkin </a>
+          
+          <br><a href=https://discord.gg/p3bxZKE>Discord - </a><a href=https://twitter.com/pumpkin60LG>Twitter<br></a><p>
+        
+        <div id=front><iframe src="frontier.html" frameBorder="0"></iframe></div><br>
+        <div id=bio></div><iframe src="bioplant.html" frameBorder="0"></iframe><br></div>
+        <div id=sky></div><iframe src="skybreak.html" frameBorder="0"></iframe><br></div>
+        <div id=peri></div><iframe src="perilous.html" frameBorder="0"></iframe><br></div>
+        <div id=kasb></div><iframe src="kasbah.html" frameBorder="0"></iframe></div>
+
     </body>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        </head>
+        <body>
+        
+        <div class="slideshow-container">
+        
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <iframe src="bioplant.html" title="W3Schools Free Online Web Tutorials"></iframe>
+          <div class="text">Caption Text</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <iframe src="frontier.html" title="W3Schools Free Online Web Tutorials"></iframe>
+          <div class="text">Caption Two</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <iframe src="skybreak.html" title="W3Schools Free Online Web Tutorials"></iframe>
+          <div class="text">Caption Three</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        
+        <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+        
+        </body>
+
+        
 
 </html>
