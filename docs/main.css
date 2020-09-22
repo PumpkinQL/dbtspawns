@@ -1,6 +1,6 @@
 body
 {
-    background-image: url(https://images.igdb.com/igdb/image/upload/t_original/cvcfuhti3mawfiizv0un.png);
+    background-image: url("background.png");
     font-family: arial;
     background-repeat: no-repeat;
     background-size: 1920px 1080px;
