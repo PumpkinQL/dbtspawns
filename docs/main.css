@@ -1,6 +1,6 @@
 body
 {
-    background-image: url("background.png");
+    background-image: url("https://cdn.discordapp.com/attachments/498883392016744461/758375474052988968/game_report.png");
     font-family: arial;
     background-repeat: no-repeat;
     background-size: 1920px 1080px;
@@ -54,15 +54,14 @@ h2
 
 a
 {
-    color:lightgrey;
-    background: rgba(0, 0, 0, 0.5);
+  color: lightgrey:
 }
 
 iframe
 {
     width: 804px;
     height: 804px;
-    background: rgba(0, 0, 0, 0.1) !important;
+    background-image: url(background.png) !important;
 }
 
 .previewimg
