@@ -69,18 +69,17 @@
 												
 				
 				var spawns = new Array()			
-				spawns[0] = [222, 85, .3];
-				spawns[1] = [312, 27, .3];
-				spawns[2] = [176, 185, .3];
-				spawns[3] = [277, 183, .3];
-				spawns[4] = [495, 262, .3];
-				spawns[5] = [66, 440, .3];
-				spawns[6] = [60, 525, .3];
-                                spawns[7] = [175, 712, .3];
-                                spawns[8] = [555, 569, .3];
-                                spawns[9] = [342, 727, .3];
-                                spawns[10] = [402, 640, .3];
-                                spawns[11] = [404, 637, .3];
+				spawns[0] = [476, 313, .3];
+				spawns[1] = [463, 117, .3];
+				spawns[2] = [188, 225, .3];
+				spawns[3] = [284, 225, .3];
+				spawns[4] = [234, 132, .3];
+				spawns[5] = [84, 446, .3];
+				spawns[6] = [73, 563, .3];
+                spawns[7] = [191, 723, .3];
+                spawns[8] = [407, 656, .3];
+                spawns[9] = [538, 624, .3];
+                spawns[10] = [344, 734, .3];
 
  
 				
@@ -158,7 +157,7 @@
 			
 			function drawCursor(canvas, mousePos){
 				var color = "#8ED6FF";
-				drawSpawn(canvas, mousePos.x, mousePos.y, color, 12);
+				drawSpawn(canvas, mousePos.x, mousePos.y, color, 6);
 			}
 			
 			function getMousePos(canvas, evt){
@@ -211,8 +210,22 @@
             };
  
         </script>
-    </head>
+	</head>
+	<!--<div style="position: absolute; bottom: 5px">
+        <p id="demo"></p>
+        </div>
+
+        <script>
+        function showCoords(event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        var coords = "X coords: " + x + ", Y coords: " + y;
+        document.getElementById("demo").innerHTML = coords;
+        }
+        </script>
+        </head>-->
+
     <body>
-                  <canvas id="myCanvas" width="798" height="797">
+		<canvas onclick=showCoords(event) id="myCanvas" width="798" height="797">
     </body>
 </html>
