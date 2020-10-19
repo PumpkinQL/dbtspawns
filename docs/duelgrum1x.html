@@ -214,8 +214,20 @@
 				
             };
 		</script>
-    </head>
-    <body>
-                  <canvas id="myCanvas" width="685" height="521">
+		<div style="position: absolute; bottom: 5px">
+<p id="demo"></p>
+</div>
+
+<script>
+function showCoords(event) {
+var x = event.clientX - 8;
+var y = event.clientY - 8;
+var coords = "X coords: " + x + ", Y coords: " + y;
+document.getElementById("demo").innerHTML = coords;
+}
+</script>
+</head>
+<body>
+	<canvas onclick=showCoords(event) id="myCanvas" width="685" height="521">
     </body>
 </html>

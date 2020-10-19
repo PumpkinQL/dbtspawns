@@ -13,6 +13,24 @@ body
 
 img
 {
-  width: 225px;
+  width: 215px;
   height: 115px;
+}
+
+.mapimages
+{
+  width: 60%;
+  float: left;
+}
+
+.spawnlogic
+{
+  width: 30%;
+  float: left;
+}
+
+.info
+{
+  width: 100%;
+  float: left;
 }
