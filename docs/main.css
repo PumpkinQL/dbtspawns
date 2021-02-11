@@ -1,36 +1,52 @@
-.topbar
+*
 {
-  overflow: hidden;
-  background-color: rgb(43, 155, 155);
+  margin: 0px;
+  padding: 0px;
+}
+
+header
+{
+  background-color: rgb(58, 173, 211);
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.content img
+{
+  width: 250px;
+  height: 130px;
+  transition: .2s ease-in;
+  margin-bottom: 5%;
+}
+
+.content img:hover
+{
+  transform: scale(1.25);
 }
 
 body
 {
-  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #999
+  background-color: grey;
+}
+
+.text
+{
+  width: 75%;
+  margin-left: 12.5%;
+  text-align: justify;
 }
 
 img
 {
-  width: 215px;
-  height: 115px;
+  margin: 25px;
 }
 
-.mapimages
+.content
 {
-  width: 60%;
-  float: left;
-}
-
-.spawnlogic
-{
-  width: 30%;
-  float: left;
-}
-
-.info
-{
-  width: 100%;
-  float: left;
+  text-align: center;
+  margin-right: 20%;
+  margin-left: 20%;
 }
