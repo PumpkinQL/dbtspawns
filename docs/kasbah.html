@@ -34,23 +34,23 @@
 				context.beginPath();
 				context.arc(x, y, radius, 0, 2 * Math.PI, false);
 				if(initial)
-				context.lineWidth = 3;
+					context.lineWidth = 3;
 				else
-				context.lineWidth = 1;
+					context.lineWidth = 1;
 				context.strokeStyle = "black";
 				context.stroke();
 			}
 			
-            function drawRadius(canvas, x, y, radius){
-                var context = canvas.getContext('2d');
-                context.beginPath();
-                context.arc(x, y, radius, 0, 2 * Math.PI, true);
-                context.lineWidth = 1;
-                context.strokeStyle = "#000000"; // line color
-                context.stroke();
-            }
+                        function drawRadius(canvas, x, y, radius){
+                                var context = canvas.getContext('2d');
+                                context.beginPath();
+                                context.arc(x, y, radius, 0, 2 * Math.PI, true);
+                                context.lineWidth = 1;
+                                context.strokeStyle = "#000000"; // line color
+                                context.stroke();
+                        }
 			
-			function drawSpawns(canvas, mousePos, spawns, initial){
+			function drawSpawns(canvas, mousePos){
 			
 				// Colors
 				var possible = "rgba(0, 255, 0, 0.8)"
@@ -61,14 +61,14 @@
 				///////////////////////
 				
 				var mapOrigin = [0, 0, 0] 	// top, left, lowestSP
-				var mapEnd = 	[763, 711, 200]	// bottom, right, highestSP
-				var visSize = 	[763, 711, 200]		// width, height, spSizeRange
+				var mapEnd = 	[710, 725, 200]	// bottom, right, highestSP
+				var visSize = 	[710, 725, 200]		// width, height, spSizeRange
 				
-                var spawnCount = 9;	
-                var middleVal = 6;		
+                                var spawnCount = 15;	
+                                var middleVal = 12;		
 												
 				
-				/*var spawns = new Array()			
+				var spawns = new Array()            
 				spawns[0] = [14, 446, .3];
 				spawns[1] = [336, 205, .3];
 				spawns[2] = [364, 504, .3];
@@ -77,10 +77,10 @@
 				spawns[5] = [734, 346, .3];
 				spawns[6] = [672, 540, .3];
 				spawns[7] = [249, 642, .3];
-                spawns[8] = [129, 350, .3];*/
-                //spawns[9] = [364, 504, .3];
-				
-				/*
+				spawns[8] = [129, 350, .3];*/
+				//spawns[9] = [364, 504, .3];
+
+
 				initial[0] = false;
 				initial[1] = false;
 				initial[2] = false;
@@ -89,7 +89,7 @@
 				initial[5] = false;
 				initial[6] = false;
 				initial[7] = false;
-				initial[8] = false;*/
+				initial[8] = false;
 				// x,y coordinates used for location
 				// z coordinate used for spawn size
 				
@@ -108,15 +108,15 @@
 					spawns[i][2] = (spawns[i][2] - mapOrigin[2]) * scaling[2]
 				}
 				
-                //Compute distances
-                var dist = new Array()
-                for(i = 0; i < spawnCount; i++)
-                {
-                    var dx = Math.abs(mousePos.x - spawns[i][0])
-                    var dy = Math.abs(mousePos.y - spawns[i][1])                    
-                    dist[i] = { 'max' : Math.sqrt(dx*dx+dy*dy), 'idx' : i }
-                }
-				
+                                //Compute distances
+                                var dist = new Array()
+                                for(i = 0; i < spawnCount; i++)
+                                {
+                                     var dx = Math.abs(mousePos.x - spawns[i][0])
+                                     var dy = Math.abs(mousePos.y - spawns[i][1])                    
+                                     dist[i] = { 'max' : Math.sqrt(dx*dx+dy*dy), 'idx' : i }
+                                }
+
 				// Sort distances
 				var sortedDist = new Array()
 				for(i = 0; i < spawnCount; i++)
@@ -154,12 +154,8 @@
 			
 			function drawCursor(canvas, mousePos){
 				var color = "#8ED6FF";
-				drawSpawn(canvas, mousePos.x, mousePos.y, color, 6);
+				drawSpawn(canvas, mousePos.x, mousePos.y, color, 12);
 			}
-
-			var spawns = new Array()
-			var initial = new Array()
-			var mousePos;
 			
 			function getMousePos(canvas, evt){
 				// get canvas position
@@ -192,7 +188,7 @@
 			 
 				mapImage.onload = function(){
 				};
-				mapImage.src = "kasbah.PNG";
+				mapImage.src = "perilous.PNG";
 				
 				var legendImage = new Image();
 				legendImage.onload = function(){					
@@ -200,51 +196,19 @@
 				legendImage.src = "legend2.png";
 				
 				canvas.addEventListener('mousemove', function(evt){
-					mousePos = getMousePos(canvas, evt);					
+					var mousePos = getMousePos(canvas, evt);					
 					context.drawImage(mapImage, destX, destY);
 					context.drawImage(legendImage, destX, destY);
-					writeMessage(canvas, "Interactive Spawn Visualization");
+					writeMessage(canvas, "Interactive Spawn Visualization")
+					drawSpawns(canvas, mousePos);
 					drawCursor(canvas, mousePos);
 				}, false);
-
-				var btn = document.getElementById("button");
-				btn.addEventListener("click", function(){
-					drawSpawns(canvas, mousePos, spawns, initial)
-				}, false);
-	
+				
             };
-
-			var i = 0;
-
-			function showCoords(event) {
-				var x = event.clientX;
-				var y = event.clientY;	
-				spawns[i] = [x, y, .3];
-				initial[i] = false;
-				i++;
-				console.log(i)
-				console.log(spawns);
-			}
-
  
         </script>
     </head>
-	<!--<div style="position: absolute; bottom: 5px">
-		<p id="demo"></p>
-		</div>
-		
-		<script>
-		function showCoords(event) {
-		var x = event.clientX;
-		var y = event.clientY;
-		var coords = "X coords: " + x + ", Y coords: " + y;
-		document.getElementById("demo").innerHTML = coords;
-		}
-		</script>
-		</head>-->
-		<body>
-			<canvas onclick=showCoords(event) id="myCanvas" width="798" height="797"></canvas>
-			<button id=button>Generate</button>
-
+    <body>
+                  <canvas id="myCanvas" width="798" height="797">
     </body>
 </html>
