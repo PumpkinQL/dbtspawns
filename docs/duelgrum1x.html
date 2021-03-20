@@ -2,9 +2,6 @@
 <html>
     <head>
         <script>
-
-		    	
-
 			function writeMessage(canvas, message){
 				var context = canvas.getContext('2d');
 				context.font = '18pt Calibri';
@@ -226,6 +223,7 @@ var coords = "X coords: " + x + ", Y coords: " + y;
 document.getElementById("demo").innerHTML = coords;
 }
 </script>
+<link href=main.css rel=stylesheet type=text/css />
 </head>
 <body>
 	<canvas onclick=showCoords(event) id="myCanvas" width="685" height="521">

@@ -50,7 +50,7 @@
                 context.stroke();
             }
 			
-			function drawSpawns(canvas, mousePos){
+			function drawSpawns(canvas, mousePos, spawns, initial){
 			
 				// Colors
 				var possible = "rgba(0, 255, 0, 0.8)"
@@ -68,7 +68,7 @@
                 var middleVal = 6;		
 												
 				
-				var spawns = new Array()			
+				/*var spawns = new Array()			
 				spawns[0] = [14, 446, .3];
 				spawns[1] = [336, 205, .3];
 				spawns[2] = [364, 504, .3];
@@ -77,10 +77,10 @@
 				spawns[5] = [734, 346, .3];
 				spawns[6] = [672, 540, .3];
 				spawns[7] = [249, 642, .3];
-                spawns[8] = [129, 350, .3];
+                spawns[8] = [129, 350, .3];*/
                 //spawns[9] = [364, 504, .3];
 				
-				var initial = new Array()
+				/*
 				initial[0] = false;
 				initial[1] = false;
 				initial[2] = false;
@@ -89,7 +89,7 @@
 				initial[5] = false;
 				initial[6] = false;
 				initial[7] = false;
-				initial[8] = false;
+				initial[8] = false;*/
 				// x,y coordinates used for location
 				// z coordinate used for spawn size
 				
@@ -108,14 +108,14 @@
 					spawns[i][2] = (spawns[i][2] - mapOrigin[2]) * scaling[2]
 				}
 				
-                                //Compute distances
-                                var dist = new Array()
-                                for(i = 0; i < spawnCount; i++)
-                                {
-                                     var dx = Math.abs(mousePos.x - spawns[i][0])
-                                     var dy = Math.abs(mousePos.y - spawns[i][1])                    
-                                     dist[i] = { 'max' : Math.sqrt(dx*dx+dy*dy), 'idx' : i }
-                                }
+                //Compute distances
+                var dist = new Array()
+                for(i = 0; i < spawnCount; i++)
+                {
+                    var dx = Math.abs(mousePos.x - spawns[i][0])
+                    var dy = Math.abs(mousePos.y - spawns[i][1])                    
+                    dist[i] = { 'max' : Math.sqrt(dx*dx+dy*dy), 'idx' : i }
+                }
 				
 				// Sort distances
 				var sortedDist = new Array()
@@ -156,6 +156,10 @@
 				var color = "#8ED6FF";
 				drawSpawn(canvas, mousePos.x, mousePos.y, color, 6);
 			}
+
+			var spawns = new Array()
+			var initial = new Array()
+			var mousePos;
 			
 			function getMousePos(canvas, evt){
 				// get canvas position
@@ -196,15 +200,32 @@
 				legendImage.src = "legend2.png";
 				
 				canvas.addEventListener('mousemove', function(evt){
-					var mousePos = getMousePos(canvas, evt);					
+					mousePos = getMousePos(canvas, evt);					
 					context.drawImage(mapImage, destX, destY);
 					context.drawImage(legendImage, destX, destY);
-					writeMessage(canvas, "Interactive Spawn Visualization")
-					drawSpawns(canvas, mousePos);
+					writeMessage(canvas, "Interactive Spawn Visualization");
 					drawCursor(canvas, mousePos);
 				}, false);
-				
+
+				var btn = document.getElementById("button");
+				btn.addEventListener("click", function(){
+					drawSpawns(canvas, mousePos, spawns, initial)
+				}, false);
+	
             };
+
+			var i = 0;
+
+			function showCoords(event) {
+				var x = event.clientX;
+				var y = event.clientY;	
+				spawns[i] = [x, y, .3];
+				initial[i] = false;
+				i++;
+				console.log(i)
+				console.log(spawns);
+			}
+
  
         </script>
     </head>
@@ -222,6 +243,8 @@
 		</script>
 		</head>-->
 		<body>
-			<canvas onclick=showCoords(event) id="myCanvas" width="798" height="797">
+			<canvas onclick=showCoords(event) id="myCanvas" width="798" height="797"></canvas>
+			<button id=button>Generate</button>
+
     </body>
 </html>
